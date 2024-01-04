@@ -1,5 +1,8 @@
+import { RouterProvider } from "react-router-dom";
+import root from "./router/root";
+
 function App() {
-  return <div className="App">안녕 지야</div>;
+  return <RouterProvider router={root} />;
 }
 
 export default App;
