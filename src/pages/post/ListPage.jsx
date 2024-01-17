@@ -1,17 +1,15 @@
-import BasicLayout from "../layouts/BasicLayout";
-import clippers from "../imgs/클리퍼스.jpg";
-import duck from "../imgs/오리.jpeg";
+import clippers from "../../imgs/클리퍼스.jpg";
+import duck from "../../imgs/오리.jpeg";
 import {useState} from "react";
+import BasicHeader from "../../components/menu/BasicHeader";
 
-const Posts = () => {
+const PostsPage = () => {
   const [open, setOpen] = useState(false);
   const [categogry, setCategory] = useState("제목");
 
   return (
     <div>
-      <header className="bg-teal-400 p-5">
-        <h1 className="text-2xl text-center">Whose Taste</h1>
-      </header>
+      <BasicHeader></BasicHeader>
       {/* search bar */}
       <section className="flex justify-center my-5 relative">
         <div className="flex items-center p-6 space-x-6 bg-white rounded-xl shadow-lg hover:shadow-xl ">
@@ -75,8 +73,8 @@ const Posts = () => {
           </div>
         </div>
       </section>
-
       {/* search bar end */}
+
       <main className="flex items-center justify-center min-h-[80vh] container mx-auto">
         {/* Grid */}
         <article className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 ">
@@ -121,4 +119,4 @@ const Posts = () => {
   );
 };
 
-export default Posts;
+export default PostsPage;
