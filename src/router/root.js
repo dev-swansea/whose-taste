@@ -6,7 +6,6 @@ const { createBrowserRouter } = require("react-router-dom");
 const Loading = <div>Loading...</div>;
 
 const Main = lazy(() => import("../pages/MainPage"));
-const Posts = lazy(() => import("../pages/post/ListPage"));
 
 const root = createBrowserRouter([
   {
@@ -14,7 +13,7 @@ const root = createBrowserRouter([
     element: <Suspense fallback={Loading}><Main /></Suspense>
   },
   {
-    path: "post",
+    path: "posts",
     children: postRouter()
   },
 ]);

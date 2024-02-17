@@ -1,37 +1,17 @@
-import React, {useCallback} from "react";
-import {createSearchParams, useNavigate, useParams, useSearchParams} from "react-router-dom";
+import React from "react"
+import {useParams} from "react-router-dom"
+import BasicHeader from "../../components/common/BasicHeader"
+import ReadComponent from "../../components/posts/ReadComponent"
 
 const ReadPage = () => {
-  const {tno} = useParams();
-  const navigate = useNavigate();
-
-  const [queryParams] = useSearchParams();
-
-  const page = queryParams.get("page") ? parseInt(queryParams.get("page")) : 1;
-  const size = queryParams.get("size") ? parseInt(queryParams("size")) : 12;
-
-  const queryStr = createSearchParams({page, size}).toString();
-
-  const moveToModify = useCallback(
-    tno => {
-      navigate({pathname: `/post/modify/${tno}`, search: queryStr});
-    },
-    [tno, page, size]
-  );
-
-  const moveToList = useCallback(() => {
-    navigate({pathname: `/post/list`, search: queryStr});
-  }, [page, size]);
+  const {pno} = useParams()
 
   return (
-    <div className="text-3xl font-extrabold">
-      나...중에 꾸밀께 {tno}
-      <div>
-        <button onClick={() => moveToModify({tno})}>수정</button>
-        <button onClick={() => moveToList()}>목록</button>
-      </div>
+    <div className="">
+      <BasicHeader />
+      <ReadComponent pno={pno} />
     </div>
-  );
-};
+  )
+}
 
-export default ReadPage;
+export default ReadPage

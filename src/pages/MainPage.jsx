@@ -1,7 +1,7 @@
-import BasicHeader from "../components/menu/BasicHeader";
-import duck from "../imgs/오리.jpeg";
-import clippers from "../imgs/클리퍼스.jpg";
-import MainBanner from "./MainBanner";
+import BasicHeader from "../components/common/BasicHeader"
+import duck from "../imgs/오리.jpeg"
+import clippers from "../imgs/클리퍼스.jpg"
+import MainBanner from "./MainBanner"
 
 const BasicLayout = () => {
   return (
@@ -49,7 +49,7 @@ const BasicLayout = () => {
         {/* Grid end */}
       </main>
     </div>
-  );
-};
+  )
+}
 
-export default BasicLayout;
+export default BasicLayout

@@ -1,7 +1,18 @@
-import React from "react";
+import React from "react"
+import {useNavigate} from "react-router"
 
-const ModifyPage = () => {
-  return <div>ModifyPage</div>;
-};
+const ModifyPage = ({pno}) => {
+  const navigate = useNavigate()
 
-export default ModifyPage;
+  const moveToRead = pno => {
+    navigate({pathname: `/post/read/${pno}`})
+  }
+
+  const moveToList = () => {
+    navigate({pathname: `/post/list`})
+  }
+
+  return <div>ModifyPage</div>
+}
+
+export default ModifyPage

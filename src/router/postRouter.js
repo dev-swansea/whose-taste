@@ -19,7 +19,7 @@ const postRouter = () => {
       element: <Suspense fallback={Loading}><PostList /></Suspense>
     },
     {
-      path: "read/:tno",
+      path: "read/:pno",
       element: <Suspense fallback={Loading}><PostRead /></Suspense>
     },
     {
@@ -27,7 +27,7 @@ const postRouter = () => {
       element: <Suspense fallback={Loading}><PostWrite /></Suspense>
     },
     {
-      path: "modify/:tno",
+      path: "modify/:pno",
       element: <Suspense fallback={Loading}><PostModify /></Suspense>
     }
   ];
