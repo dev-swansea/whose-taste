@@ -18,7 +18,7 @@ const ReadComponent = ({pno}) => {
   const {moveToList, moveToModify} = useCustomMove()
 
   useEffect(() => {
-    findOne(33).then(data => {
+    findOne(pno).then(data => {
       setPost(data)
     })
   }, [pno])

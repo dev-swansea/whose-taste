@@ -4,6 +4,7 @@ import {findList} from "../../api/postApi"
 import clippers from "../../imgs/클리퍼스.jpg"
 import duck from "../../imgs/오리.jpeg"
 import moment from "moment"
+import PageComponent from "../common/PageComponent"
 
 const initState = {
   dtoList: [],
@@ -19,7 +20,7 @@ const initState = {
 }
 
 const ListComponents = () => {
-  const {page, size} = useCustomMove()
+  const {page, size, moveToList, moveToRead, refresh} = useCustomMove()
   const [serverData, setServerData] = useState(initState)
 
   const [open, setOpen] = useState(false)
@@ -27,10 +28,9 @@ const ListComponents = () => {
 
   useEffect(() => {
     findList({page, size}).then(data => {
-      console.log(data)
       setServerData(data)
     })
-  }, [page, size])
+  }, [page, size, refresh])
 
   return (
     <>
@@ -104,7 +104,11 @@ const ListComponents = () => {
         <article className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 ">
           {/* Card */}
           {serverData.dtoList.map(post => (
-            <section key={post.pno} className="card transform hover:scale-105 transition duration-500">
+            <section
+              key={post.pno}
+              className="card transform hover:scale-105 transition duration-500"
+              onClick={() => moveToRead(post.pno)}
+            >
               <div className="p-5 flex flex-col">
                 {/* 여기서 overflow가 왜 필요할까? */}
                 <div className="rounded-xl overflow-hidden">
@@ -137,6 +141,8 @@ const ListComponents = () => {
         </article>
         {/* Grid end */}
       </main>
+
+      <PageComponent serverData={serverData} movePage={moveToList}></PageComponent>
     </>
   )
 }
